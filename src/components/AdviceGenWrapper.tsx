@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react'
 
 const API = 'https://api.adviceslip.com/advice'
 
-const initialAdvice = { id: 0, advice: '' }
-
 const AdviceGenWrapper = () => {
-  useEffect(() => rest(), [])
-  const [advice, setAdvice] = useState<{ id: number; advice: string }>(
-    initialAdvice
+  const [advice, setAdvice] = useState<{ id: number; advice: string } | null>(
+    null
   )
+
+  useEffect(() => rest(), [])
 
   const rest = () => {
     fetch(API)
@@ -17,12 +16,16 @@ const AdviceGenWrapper = () => {
   }
 
   return (
-    <div>
-      <div>{advice.id}</div>
-      <div>{advice.advice}</div>
-      <hr />
-      <button onClick={rest}></button>
-    </div>
+    <>
+      {advice && (
+        <div>
+          <div>{advice.id}</div>
+          <div>{advice.advice}</div>
+          <hr />
+          <button onClick={rest}></button>
+        </div>
+      )}
+    </>
   )
 }
 
