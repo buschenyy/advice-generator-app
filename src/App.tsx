@@ -1,13 +1,10 @@
-import { useState } from 'react'
 import './App.css'
-import AdviceGenWrapper from './components/AdviceGenWrapper'
+import AdviceGen from './components/AdviceGen'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <AdviceGenWrapper />
+      <AdviceGen />
     </div>
   )
 }

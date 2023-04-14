@@ -8,7 +8,7 @@ async function rest() {
   return await response.json()
 }
 
-const AdviceGenWrapper = () => {
+const AdviceGen = () => {
   const [advice, setAdvice] = useState<{ id: number; advice: string }>(
     intialState
   )
@@ -27,4 +27,4 @@ const AdviceGenWrapper = () => {
   )
 }
 
-export default AdviceGenWrapper
+export default AdviceGen
