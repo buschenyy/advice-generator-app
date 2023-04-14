@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
 const API = 'https://api.adviceslip.com/advice'
-const intialState = (await rest()).slip
+const intialState = (await getData()).slip
 
-async function rest() {
+async function getData() {
   const response = await fetch(API)
   return await response.json()
 }
@@ -20,7 +20,7 @@ const AdviceGen = () => {
           <span>Advice #{advice.id}</span>
           <p>{advice.advice}</p>
           <hr />
-          <button onClick={async () => setAdvice((await rest()).slip)}></button>
+          <button onClick={async () => setAdvice((await getData()).slip)}></button>
         </div>
       )}
     </>
